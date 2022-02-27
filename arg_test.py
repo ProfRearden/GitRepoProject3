@@ -4,7 +4,7 @@ import sys
 
 # print('INCOMING FROM GITHUB: %s  %s' % (sys.argv[2], sys.argv[3:]))
 #
-print(sys.argv)
+#print(sys.argv)
 #
 #print(sys.argv[1], sys.argv[2:])
 stripped = [s.strip('\r') for s in sys.argv[2:]]
