@@ -26,3 +26,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run python script
         run: python arg_test.py ${{github.event.release.tag_name}} ${{github.event.release.body}}
+        
+        
+        
