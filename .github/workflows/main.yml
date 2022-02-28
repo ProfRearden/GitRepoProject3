@@ -29,5 +29,3 @@ jobs:
       - name: output Results
         run: echo arg_test.py ${{github.event.release.tag_name}} ${release_info}
         
-        
-        
