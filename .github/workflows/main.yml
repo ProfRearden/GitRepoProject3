@@ -16,7 +16,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,7 +25,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run python script
-        run: echo arg_test.py ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
+        run: release_info=$(cat ${{toJSON(github.event.release.body}} | python -c 'import json; import sys; print(json.dumps(sys.stdin.read()))')
+      - name: output Results
+        run: echo arg_test.py ${{github.event.release.tag_name}} ${release_info}
         
         
         
