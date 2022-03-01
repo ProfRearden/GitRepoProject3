@@ -12,7 +12,6 @@ print(type(sys.argv[2:]))
 stripped = sys.argv[2:].replace("\\r"," ").replace("\\", " ")
 print(sys.argv[1], stripped)
 
-
 #argument_2 = ' '.join(*(sys.argv[3:].strip("\r")).replace('\r','').split())
 # print(argument_2)
 
