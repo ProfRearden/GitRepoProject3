@@ -24,8 +24,6 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run python script
-        run: release_info=$(cat ${{(github.event.release.body}} | python -c 'import json; import sys; print(json.dumps(sys.stdin.read()))')
       - name: output Results
-        run: echo arg_test.py ${{github.event.release.tag_name}} ${release_info}
+        run: echo arg_test.py ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body}}
         
