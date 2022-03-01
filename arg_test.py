@@ -15,7 +15,6 @@ print(sys.argv[1], stripped)
 #argument_2 = ' '.join(*(sys.argv[3:].strip("\r")).replace('\r','').split())
 # print(argument_2)
 
-
 # my_list = ['this\n', 'is\n', 'a\n', 'list\n', 'of\n', 'words\n']
 # stripped = [s.strip('\n') for s in my_list]
 # print(*stripped)
