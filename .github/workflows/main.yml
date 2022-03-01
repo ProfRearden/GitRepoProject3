@@ -25,5 +25,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: output Results
-        run: echo arg_test.py ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body}}
+        run: echo arg_test.py ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
         
