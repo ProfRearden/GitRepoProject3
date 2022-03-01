@@ -2,16 +2,17 @@ import os
 import sys
 
 
-# print('INCOMING FROM GITHUB: %s  %s' % (sys.argv[2], sys.argv[3:]))
+print ('INCOMING FROM GITHUB: %s  %s' % (sys.argv[1], sys.argv[2:]))
 #
 #print(sys.argv)
 #
 #print(sys.argv[1], sys.argv[2:])
 #stripped = [s.strip('\r') for s in sys.argv[2:]]
-print("hello")
-print(type(sys.argv[2:]))
-stripped = sys.argv[2:].replace("\\r"," ").replace("\\", " ")
-print(sys.argv[1], stripped)
+
+#stripped = sys.argv[2:].replace("\\r"," ").replace("\\", " ")
+#print(sys.argv[1], stripped)
+#print("hello")
+#print(type(sys.argv[2:]))
 
 #argument_2 = ' '.join(*(sys.argv[3:].strip("\r")).replace('\r','').split())
 # print(argument_2)
