@@ -8,6 +8,7 @@ import sys
 #
 #print(sys.argv[1], sys.argv[2:])
 #stripped = [s.strip('\r') for s in sys.argv[2:]]
+print("hello")
 print(type(sys.argv[2:]))
 stripped = sys.argv[2:].replace("\\r"," ").replace("\\", " ")
 print(sys.argv[1], stripped)
