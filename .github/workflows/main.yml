@@ -20,7 +20,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
       - name: Run python script
         run:  PACKAGE_NAME=${{ github.event.repository.name }} EMAIL_USER=${{ secrets.EMAIL_USERNAME }} EMAIL_PSWORD=${{ secrets.EMAIL_PASSWORD }} python arg_test_2.py  ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
         env:
