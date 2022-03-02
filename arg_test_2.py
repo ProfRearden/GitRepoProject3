@@ -6,8 +6,6 @@ import requests
 import smtplib
 import base64
 
-PACKAGES = '/Volumes/Shared/Brud/west/repos/pipe_utils/packages.yml'
-
 class Release:
     def __init__(self):
         print('Package Release Protocol')
@@ -39,36 +37,7 @@ class Release:
         except SMTPResponseException as e:
             error_code = e.smtp_code
             error_message= e.smtp_error
-            print (f'Error: {error_code}: {error message}')
-        
-        
-#     def slack_notifications(self, pkg_name, release_name, release_description):
-#         print('Sending slack notifications')
-#         url = "https://hooks.slack.com/services/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"
-#         message = (release_description)
-#         title = (f'{pkg_name}-{release_name} :zap:')
-#         slack_data = {
-#             "username": "NotificationBot",
-#             "icon_emoji": ":satellite:",
-#             #"channel" : "#somerandomcahnnel",
-#             "attachments": [
-#                 {
-#                     "color": "#9733EE",
-#                     "fields": [
-#                         {
-#                         "title": title,
-#                         "value": message,
-#                         "short": "false",
-#                         }
-#                     ]
-#                 }
-#             ]
-#         }
-#         byte_length = str(sys.getsizeof(slack_data))
-#         headers = {'Content-Type': "application/json", 'Content-Length': byte_length}
-#         response = requests.post(url, data=json.dumps(slack_data), headers=headers)
-#         if response.status_code != 200:
-#             raise Exception(response.status_code, response.text)
+            print (f'Error: {error_code}: {error message}')    
 
     def pull_to_disk(self):
         print('Pulling to disk')
@@ -80,9 +49,6 @@ def run(pkg_name, release_name, release_description, e_usrname, e_psword):
 
     # Send email notifications
     pkg_rel.email_notifications(pkg_name, release_name, release_description, e_usrname, e_psword)
-
-    # Send slack notifications
-    # pkg_rel.slack_notifications(pkg_name, release_name, release_description)
 
     # Pull to disk
     pkg_rel.pull_to_disk()
