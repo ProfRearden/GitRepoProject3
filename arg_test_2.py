@@ -59,9 +59,9 @@ if __name__=="__main__":
     string_arg = ''.join(sys.argv[2])
     rsl_notes = string_arg.replace('\\r',"").replace('\\n','\n')    
     
-    e_usrname = os.environ['EMAIL_USER']
-    e_psword = os.environ['EMAIL_PSWORD']
-    pkg_name = os.environ['PACKAGE_NAME']
+    e_usrname = os.environ.get('EMAIL_USER')
+    e_psword = os.environ.get('EMAIL_PSWORD')
+    pkg_name = os.environ.get('PACKAGE_NAME')
     #print (pkg_name)
     #print (type(e_usrname))
     #print (e_usrname)
