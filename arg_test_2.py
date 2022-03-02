@@ -2,7 +2,6 @@ import sys
 import os
 import json
 import random
-import requests
 import smtplib
 import base64
 
