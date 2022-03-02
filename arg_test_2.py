@@ -11,7 +11,7 @@ class Release:
 
     def email_notifications(self, pkg_name, release_name, release_description, e_usrname, e_psword):
         
-        receivers = ['sheena.boone@gmail.com', 'sheena.boone@dapperlabs.com']
+        receivers = ['sheena.boone@gmail.com', 'sheena.boone@dapperlabs.team']
         
         print('Sending email notifications')
         # mail server settings
