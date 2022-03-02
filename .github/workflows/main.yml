@@ -24,6 +24,6 @@ jobs:
       - name: Run python script
         run:  PACKAGE_NAME=${{ github.event.repository.name }} EMAIL_USER=${{ secrets.EMAIL_USERNAME }} EMAIL_PSWORD=${{ secrets.EMAIL_PASSWORD }} python software_release_protocol.py ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
         env:
-         e_usrname: ${{ secrets.EMAIL_USERNAME }}
-         e_psword: ${{ secrets.EMAIL_PASSWORD }}   
-         pkg_name: ${{ github.event.repository.name }}
+         EMAIL_USER: ${{ secrets.EMAIL_USERNAME }}
+         EMAIL_PSWORD: ${{ secrets.EMAIL_PASSWORD }}   
+         PACKAGE_NAME: ${{ github.event.repository.name }}
