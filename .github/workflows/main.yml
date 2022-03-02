@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run python script
-        run:  PACKAGE_NAME=${{ github.event.repository.name }} EMAIL_USER=${{ secrets.EMAIL_USERNAME }} EMAIL_PSWORD=${{ secrets.EMAIL_PASSWORD }} python software_release_protocol.py ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
+        run:  PACKAGE_NAME=${{ github.event.repository.name }} EMAIL_USER=${{ secrets.EMAIL_USERNAME }} EMAIL_PSWORD=${{ secrets.EMAIL_PASSWORD }} python arg_test_2.py  ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
         env:
          EMAIL_USER: ${{ secrets.EMAIL_USERNAME }}
          EMAIL_PSWORD: ${{ secrets.EMAIL_PASSWORD }}   
