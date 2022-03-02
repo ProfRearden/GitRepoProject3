@@ -24,8 +24,9 @@ jobs:
         with:
           python-version: 3.9
       - name: Run python script
-        run:  PACKAGE_NAME=${{ github.event.repository.name }} EMAIL_USER=${{ secrets.EMAIL_USERNAME }} EMAIL_PSWORD=${{ secrets.EMAIL_PASSWORD }} python arg_test_2.py  ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
+        run:  PACKAGE_NAME=${{ github.event.repository.name }} EMAIL_USER=${{ secrets.EMAIL_USERNAME }} EMAIL_PSWORD=${{ secrets.EMAIL_PASSWORD }} PRE_RELEASE=${{ github.event.release.prerelease }} python arg_test_2.py  ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
         env:
          EMAIL_USER: ${{ secrets.EMAIL_USERNAME }}
          EMAIL_PSWORD: ${{ secrets.EMAIL_PASSWORD }}   
          PACKAGE_NAME: ${{ github.event.repository.name }}
+         PRE_RELEASE: ${{ github.event.release.prerelease }}
