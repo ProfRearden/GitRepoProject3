@@ -27,7 +27,7 @@ class Release:
             #server login
             server.login(username,password)
             # email subject and text
-            msg = 'Subject: {}-{}\n\n{}'.format(pkg_name, release_name, release_despcription)
+            msg = 'Subject: {}-{}\n\n{}'.format(pkg_name, release_name, release_description)
             # send email
             server.sendmail(username, receivers, msg)
             server.quit()
