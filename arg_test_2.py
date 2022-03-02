@@ -9,7 +9,7 @@ class Release:
     def __init__(self):
         print('Package Release Protocol')
 
-    def email_notifications(self, pkg_name, release_name, release_description, e_usrname, e_psword):
+    def email_notifications(self, pkg_name, release_name, p_rsl, release_description, e_usrname, e_psword):
         
         receivers = ['sheena.boone@gmail.com', 'sheena.boone@dapperlabs.team']
         
@@ -27,7 +27,7 @@ class Release:
             #server login
             server.login(username,password)
             # email subject and text
-            msg = 'Subject: {}-{}\n\n{}'.format(pkg_name, release_name, release_description)
+            msg = 'Subject: {}-{} ({})\n\n{}'.format(pkg_name, release_name, p_rsl, release_description)
             # send email
             server.sendmail(username, receivers, msg)
             server.quit()
@@ -44,12 +44,12 @@ class Release:
         print('Pulling to disk')
 
 
-def run(pkg_name, release_name, release_description, e_usrname, e_psword):
+def run(pkg_name, release_name, p_rsl, release_description, e_usrname, e_psword):
     print('Release: add package release')
     pkg_rel = Release()
 
     # Send email notifications
-    pkg_rel.email_notifications(pkg_name, release_name, release_description, e_usrname, e_psword)
+    pkg_rel.email_notifications(pkg_name, release_name, p_rsl, release_description, e_usrname, e_psword)
 
     # Pull to disk
     pkg_rel.pull_to_disk()
@@ -63,7 +63,9 @@ if __name__=="__main__":
     e_usrname = os.environ.get('EMAIL_USER')
     e_psword = os.environ.get('EMAIL_PSWORD')
     pkg_name = os.environ.get('PACKAGE_NAME')
+    pre_rsl = os.environ.get('PRE_RELEASE')
+    
     #print (pkg_name)
     #print (type(e_usrname))
     #print (e_usrname)
-    run(pkg_name, sys.argv[1], rsl_notes, e_usrname, e_psword)
+    run(pkg_name, sys.argv[1], pre_rsl, rsl_notes, e_usrname, e_psword)
