@@ -15,10 +15,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
-    env:
-       e_usrname: ${{ secrets.EMAIL_USERNAME }}
-       e_psword: ${{ secrets.EMAIL_PASSWORD }}   
-       pkg_name: ${{ github.event.repository.name }}
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -26,3 +23,7 @@ jobs:
 
       - name: Run python script
         run:  PACKAGE_NAME=${{ github.event.repository.name }} EMAIL_USER=${{ secrets.EMAIL_USERNAME }} EMAIL_PSWORD=${{ secrets.EMAIL_PASSWORD }} python software_release_protocol.py ${{github.event.release.tag_name}} ${{toJSON(github.event.release.body)}}
+        env:
+         e_usrname: ${{ secrets.EMAIL_USERNAME }}
+         e_psword: ${{ secrets.EMAIL_PASSWORD }}   
+         pkg_name: ${{ github.event.repository.name }}
