@@ -37,8 +37,10 @@ class Release:
         except SMTPResponseException as e:
             error_code = e.smtp_code
             error_message= e.smtp_error
-            print (f"Error: {error_code}: {error message}")    
-
+            #print (f"Error: {error_code}: {error message}")    
+            print(error_code)
+            print(error_message)
+    
     def pull_to_disk(self):
         print('Pulling to disk')
 
